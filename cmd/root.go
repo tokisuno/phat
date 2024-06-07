@@ -12,11 +12,6 @@ func helloWorld() string {
     return "Hello world" 
 }
 
-var (
-    cfgFile string
-	userLicense string
-)
-
 var rootCmd = &cobra.Command {
     Use: "phat",
     Short: "Multipurpose productivity tool",

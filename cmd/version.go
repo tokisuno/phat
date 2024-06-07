@@ -18,3 +18,4 @@ var versionCmd = &cobra.Command{
         fmt.Println("phat -> version 0.1") 
     },
 }
+
