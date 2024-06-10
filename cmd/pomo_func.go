@@ -6,14 +6,26 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/gen2brain/beeep"
+	"github.com/spf13/viper"
 )
 
-func startPomo() {
-    // TODO: read these ints from config file
-    work_duration := 10
-    break_duration := 10
 
-    num_pomos := 3
+func startPomo() {
+    // Viper configuration setup
+    viper.SetConfigName("config")
+    viper.SetConfigType("yaml")
+    viper.AddConfigPath("$HOME/.config/phat")
+    viper.AddConfigPath(".")
+    err := viper.ReadInConfig()
+    if err != nil {
+        panic(fmt.Errorf("Fatal error config file: %w", err))
+    }
+
+    // TODO: read these ints from config file
+    work_duration := viper.Get("session_length").(int)
+    break_duration := viper.Get("break_length").(int)
+
+    num_pomos := viper.Get("session_amount").(int)
 
     fmt.Println(work_duration)
     for i := 1; i <= num_pomos; i++ {

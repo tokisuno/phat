@@ -43,4 +43,5 @@ programming,60,true
 
 ## Quality of life
 
-- in the user.conf, list habits that can be picked from as defaults
+- in the `config.yaml`, list habits that can be picked from as defaults
+    - `config.yaml` is placed in `$HOME/.config/phat`

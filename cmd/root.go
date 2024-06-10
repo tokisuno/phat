@@ -8,16 +8,13 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func helloWorld() string {
-    return "Hello world" 
-}
 
 var rootCmd = &cobra.Command {
     Use: "phat",
     Short: "Multipurpose productivity tool",
     Long: "(P)omodoro (Habit-tracker) and (T)ime tracker tool",
     Run: func(cmd *cobra.Command, args []string) {
-        fmt.Fprintf(cmd.OutOrStdout(), "%s", helloWorld())
+        fmt.Println("Hello world")
     },
 }
 func Execute() {
