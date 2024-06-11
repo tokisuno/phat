@@ -3,10 +3,13 @@ package cmd
 import (
     "fmt"
 
-    "github.com/nexidian/gocliselect"
+    "github.com/tokisuno/gocliselect"
 	"github.com/spf13/viper"
 )
 
+type Config struct {
+    Topics []string `yaml:"topics"`
+}
 
 func getTopic() (int, int, string) {
     viper.SetConfigName("config")
@@ -31,7 +34,3 @@ func getTopic() (int, int, string) {
     return work_duration, break_duration, option
 }
 
-    // fmt.Println(viper.AllKeys())
-    // for _, i := range viper.AllKeys() {
-    //     fmt.Println(i, viper.Get(i))
-    // }

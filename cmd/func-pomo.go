@@ -7,6 +7,8 @@ import (
 	"github.com/fatih/color"
 	"github.com/gen2brain/beeep"
 	"github.com/spf13/viper"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 
@@ -55,7 +57,7 @@ func colouredOutput(duration int, startingTime int, state string, num int, denom
     sessionText := color.New(color.FgWhite).Add(color.Underline)
     durationText := color.New(color.FgHiBlack)
 
-    sessionText.Printf("%s Timer for %s: %v/%v\n", state, topic, num, denom)
+    sessionText.Printf("%s Timer for %s: %v/%v\n", state, cases.Title(language.Und).String(topic), num, denom)
      
     if duration <= startingTime/2 {
         durationText = color.New(color.FgHiWhite)

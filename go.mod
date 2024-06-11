@@ -6,13 +6,14 @@ require (
 	github.com/adrg/xdg v0.4.0
 	github.com/fatih/color v1.17.0
 	github.com/gen2brain/beeep v0.0.0-20240516210008-9c006672e7f4
-	github.com/nexidian/gocliselect v1.0.0
 	github.com/spf13/cobra v1.8.0
 	github.com/spf13/viper v1.19.0
+	github.com/tokisuno/gocliselect v0.0.0-20240611142509-e1feb185eb12
+	golang.org/x/text v0.14.0
 )
 
 require (
-	github.com/buger/goterm v1.0.3 // indirect
+	github.com/buger/goterm v1.0.4 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/go-toast/toast v0.0.0-20190211030409-01e6764cf0a4 // indirect
 	github.com/godbus/dbus/v5 v5.1.0 // indirect
@@ -37,7 +38,6 @@ require (
 	go.uber.org/multierr v1.9.0 // indirect
 	golang.org/x/exp v0.0.0-20230905200255-921286631fa9 // indirect
 	golang.org/x/sys v0.18.0 // indirect
-	golang.org/x/text v0.14.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
