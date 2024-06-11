@@ -1,10 +1,12 @@
 package cmd
 
 import (
-    "fmt"
+	"fmt"
+    "os"
 
-    "github.com/tokisuno/gocliselect"
 	"github.com/spf13/viper"
+	"github.com/tokisuno/gocliselect"
+	"gopkg.in/yaml.v3"
 )
 
 type Config struct {
@@ -21,13 +23,28 @@ func getTopic() (int, int, string) {
         panic(fmt.Errorf("Fatal error config file: %w", err))
     }
 
+    // scuffed rn, to be fixed
+    f, err := os.ReadFile("/home/poto/.config/phat/config.yaml")
+    if err != nil {
+        panic("couldn't find config file")
+    }
+
+    var config Config
+
+    err = yaml.Unmarshal(f, &config)
+    if err != nil {
+        panic("couldn't decode")
+    }
+
+
     work_duration := viper.Get("session_length").(int)
     break_duration := viper.Get("break_length").(int)
 
     menu := gocliselect.NewMenu("What're you studying? (declare options in config.yaml)")
 
-    menu.AddItem("Programming", "programming")
-    menu.AddItem("Japanese", "japanese")
+    for _, topic := range config.Topics {
+        menu.AddItem(topic, topic)
+    }
 
     option := menu.Display()
     
